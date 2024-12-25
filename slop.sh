@@ -13,27 +13,27 @@ options=("Generate Transcript" "Generate Images" "Generate Audio" "Apply Ken Bur
 select opt in "${options[@]}"; do
     case $opt in
         "Generate Transcript")
-            ./generate_script.sh
+            ./scripts/generate_script.sh
             break
             ;;
         "Generate Images")
-            ./generate_images.sh
+            ./scripts/generate_images.sh
             break
             ;;
         "Generate Audio")
-            ./generate_audio.sh
+            ./scripts/generate_audio.sh
             break
             ;;
         "Apply Ken Burns to Images")
-            ./ken_burns.sh
+            ./scripts/ken_burns.sh
             break
             ;;
         "Concatenate Videos Together")
-            ./concat_clips.sh
+            ./scripts/concat_clips.sh
             break
             ;;
         "Add Audio to Video")
-            ./add_audio.sh
+            ./scripts/add_audio.sh
             break
             ;;
         "Quit")
