@@ -2,6 +2,8 @@
 
 This bash project uses the OpenAI API and ffmpeg to generate tiktok slop.
 
+https://github.com/user-attachments/assets/acc608d9-8ee8-4306-ae49-f249a8487885
+
 ### Setup
 
 Running these scripts requires an OpenAI API Key.
