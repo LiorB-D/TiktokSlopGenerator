@@ -1,0 +1,60 @@
+# Tiktok Slop Generator
+
+This bash project uses the OpenAI API and ffmpeg to generate tiktok slop.
+
+### Setup
+
+Running these scripts requires an OpenAI API Key.
+
+Create a `.env` in the root of the folder and add a value for `OPENAI_API_KEY`
+
+Make sure that you have [ffmpeg](https://www.ffmpeg.org/download.html) installed
+
+### The Scripts
+
+The flow is composed of 7 core scripts. I highly recommend running each step seperately and verifying the output. The steps are:
+
+1. Generate Script
+2. Generate Images
+3. Generate Audio
+4. Apply Ken Burns Affect to Images
+5. Concatenate Clips
+6. Add audio to video
+
+To run the CLI, run `slop.sh`. The first time you run it, it will check for and if neccesary install `JQ`, a Bash JSON parser.
+
+The output of each step will be in the `./assets` folder.
+
+**1. Script Generation**
+
+This script asks you for the topic that you want to make a video on. It writes the json output to a file named `transcript.json`. The json will be of the form:
+
+```json
+{
+  "lines": [
+    {
+      "text": "The Election of 1800 was intense and historic.",
+      "image": "American flag from 1800"
+    },
+    {
+      "text": "John Adams, the incumbent, faced Thomas Jefferson.",
+      "image": "Portrait of John Adams"
+    },
+    {
+      "text": "Jefferson and Aaron Burr tied in the Electoral College.",
+      "image": "Jefferson and Aaron Burr arguing on a presidential debate stage"
+    },
+    {
+      "text": "The House of Representatives cast 36 ballots.",
+      "image": "Interior of the House of Representatives. Representatives are voting and arguing."
+    }
+  ]
+}
+```
+
+The `text` is what will be used for the TTS, while the `image` field will be used to generate the image.
+
+### TODO
+
+- Switch TTS model to Eleven Labs (Much higher quality, neglible price difference)
+- Add CLI options for

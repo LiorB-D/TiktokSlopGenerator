@@ -1,0 +1,11 @@
+.env
+
+
+
+*.mp3
+*.jpg
+*.mp4
+clip_list.txt
+transcript.json
+
+.DS_Store
