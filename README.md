@@ -54,7 +54,36 @@ This script asks you for the topic that you want to make a video on. It writes t
 
 The `text` is what will be used for the TTS, while the `image` field will be used to generate the image.
 
+**2. Generate Images**
+
+The images are generated using DALLE-3 in `1024x1792`. As of 12/24/24, it costs $0.08 per image.
+
+Images are saved to the `assets/images` folder, named `IMG_x.jpg` where x is its index in the list of clips
+
+**3. Generate Audio**
+
+Audio is currently generated using OpenAI's TTS, though its quality is meh so I will likely switch it to ElevenLabs soon
+
+The text fields in the transcript are concatenated to form the transcript.
+
+Audio is saved to `assets/audio.mp3`
+
+**4. Apply Ken Burns**
+
+This step generated a clip from each image using the Ken Burns effect (Zooming into a certain corner). The fffmpeg commands are pretty messy.
+
+Clips are saved to `assets/clips/VID_x.mp4`
+
+**5. Concatenate Clips**
+
+This step uses ffmpeg to concatenate the clips into a singular video. The video is saved as `assets/vidWithoutAudio.mp4`
+
+**6. Add Audio**
+
+Finally, we use ffmpeg to slow down (or speed up) the video to the length of the audio, and combine the two into `finalVid.mp4`
+
 ### TODO
 
 - Switch TTS model to Eleven Labs (Much higher quality, neglible price difference)
-- Add CLI options for
+- Add CLI options for clearing assets
+- Improve prompting for Dall-E and image description generation.
