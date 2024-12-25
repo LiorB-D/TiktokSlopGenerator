@@ -39,6 +39,7 @@ jq -c '.lines[]' assets/transcript.json | while read -r line; do
     prompt="
     Generate an 1024x1792 image of $description in the style of $style.
     "
+
     # Skip if IMG_$index.jpg already exists
 
     if [ -f "assets/images/IMG_$index.jpg" ]; then
@@ -46,6 +47,7 @@ jq -c '.lines[]' assets/transcript.json | while read -r line; do
         index=$((index + 1))
         continue
     fi
+    
     response=$(curl "https://api.openai.com/v1/images/generations" \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $OPENAI_API_KEY" \

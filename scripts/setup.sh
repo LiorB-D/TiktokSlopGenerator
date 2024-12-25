@@ -1,6 +1,4 @@
-# Install JQ on the system depending on the system
-
-# Check if JQ is installed
+# JQ is used for JSON parsing and building
 
 if ! [ -x "$(command -v jq)" ]; then
   echo "JQ is not installed. Installing JQ..."

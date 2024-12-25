@@ -8,7 +8,7 @@ for i in $(seq 1 $NUM_IMAGES)
 do
     echo "Processing image $i..."
 
-    
+    # TODO: Test Generating zoom target random 
 
     if [ $((i % 2)) -eq 0 ]; then
         ffmpeg \

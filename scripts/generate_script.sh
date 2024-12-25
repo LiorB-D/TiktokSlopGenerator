@@ -8,10 +8,10 @@ read input_text
 
 echo "Reading OpenAI API key from .env file..."
 
-# Read the OpenAI API key from the .env file
+
 export $(egrep -v '^#' .env | xargs)
 
-# Check if the API key is set
+
 if [ -z "$OPENAI_API_KEY" ]; then
   echo "Error: OpenAI API key not set."
   exit 1
@@ -76,7 +76,6 @@ response=$(curl "https://api.openai.com/v1/chat/completions" \
 echo "Raw Response from OpenAI API:"
 echo $response
 
-# Extract the response from the JSON object
 
 transcript=$(echo $response | jq -r '.choices[0].message.content')
 

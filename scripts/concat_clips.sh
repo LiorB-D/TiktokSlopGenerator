@@ -4,6 +4,7 @@ echo "Concatenating videos together..."
 
 echo "Assembling file list"
 
+# Need to generate a file list of the clpis for ffmpeg read from
 ls ./assets/clips/VID_*.mp4 | sed "s|^./assets/|file '|" | sed "s|\$|'|" > ./assets/clip_list.txt
 
 
