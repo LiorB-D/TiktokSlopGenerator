@@ -88,4 +88,5 @@ Finally, we use ffmpeg to slow down (or speed up) the video to the length of the
 
 - Switch TTS model to Eleven Labs (Much higher quality, neglible price difference)
 - Add CLI options for clearing assets
+- Use `drawfilter` to add captions
 - Improve prompting for Dall-E and image description generation.
