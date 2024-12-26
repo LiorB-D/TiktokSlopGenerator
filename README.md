@@ -91,3 +91,4 @@ Finally, we use ffmpeg to slow down (or speed up) the video to the length of the
 ### TODO
 
 - Improve prompting for Dall-E and image description generation.
+- Parralelize Dall-E api calls
