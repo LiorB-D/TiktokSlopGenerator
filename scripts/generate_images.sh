@@ -24,6 +24,11 @@ fi
 
 echo "Transcript read successfully: $transcript"
 
+if [ ! -d "assets/images" ]; then
+  mkdir assets/images
+fi
+
+
 echo "What style should the images be in?"
 read style
 

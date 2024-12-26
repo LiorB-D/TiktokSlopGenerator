@@ -9,7 +9,7 @@ echo "Installing dependencies..."
 echo "Dependencies installed."
 PS3="Please select a step: "
 
-options=("Generate Transcript" "Generate Images" "Generate Audio" "Apply Ken Burns to Images" "Concatenate Videos Together" "Add Audio to Video" "Quit")
+options=("Generate Transcript" "Generate Images" "Generate Audio" "Apply Ken Burns to Images" "Concatenate Videos Together" "Add Audio to Video" "Clear Assets" "Quit")
 select opt in "${options[@]}"; do
     case $opt in
         "Generate Transcript")
@@ -34,6 +34,10 @@ select opt in "${options[@]}"; do
             ;;
         "Add Audio to Video")
             ./scripts/add_audio.sh
+            break
+            ;;
+        "Clear Assets")
+            ./scripts/clear_assets.sh
             break
             ;;
         "Quit")

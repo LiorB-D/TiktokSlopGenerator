@@ -8,7 +8,7 @@ https://github.com/user-attachments/assets/acc608d9-8ee8-4306-ae49-f249a8487885
 
 Running these scripts requires an OpenAI API Key.
 
-Create a `.env` in the root of the folder and add a value for `OPENAI_API_KEY`
+Create a `.env` in the root of the folder and add a value for `OPENAI_API_KEY`. If you want to use ElevenLabs for Text-To-Speech, also include `ELEVEN_LABS_API_KEY`.
 
 Make sure that you have [ffmpeg](https://www.ffmpeg.org/download.html) installed
 
@@ -64,7 +64,7 @@ Images are saved to the `assets/images` folder, named `IMG_x.jpg` where x is its
 
 **3. Generate Audio**
 
-Audio is currently generated using OpenAI's TTS, though its quality is meh so I will likely switch it to ElevenLabs soon
+This step supports both ElevenLabs and OpenAI's TTS models. In my opinion, Eleven Labs are much higher quality, but you may prefer to keep all your AI bills to one vendor.
 
 The text fields in the transcript are concatenated to form the transcript.
 
@@ -72,9 +72,13 @@ Audio is saved to `assets/audio.mp3`
 
 **4. Apply Ken Burns**
 
-This step generated a clip from each image using the Ken Burns effect (Zooming into a certain corner). The fffmpeg commands are pretty messy.
+This step generated a clip from each image using the Ken Burns effect (Zooming into a certain corner). Warning: The ffmpeg commands are pretty messy.
 
-Clips are saved to `assets/clips/VID_x.mp4`
+Clips are saved to `assets/clips_nocap/VID_x.mp4`
+
+This step then uses ffmpeg's `drawfilter` to add captions to each clips based on the transprict. The font for the captions is read from `assets/font.ttf`. You may want to play with the font color and border.
+
+The final result is saved to `assets/clips/VID_x.mp4`
 
 **5. Concatenate Clips**
 
@@ -86,7 +90,4 @@ Finally, we use ffmpeg to slow down (or speed up) the video to the length of the
 
 ### TODO
 
-- Switch TTS model to Eleven Labs (Much higher quality, neglible price difference)
-- Add CLI options for clearing assets
-- Use `drawfilter` to add captions
 - Improve prompting for Dall-E and image description generation.

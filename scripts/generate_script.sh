@@ -19,6 +19,13 @@ fi
 
 echo "API key read successfully: $OPENAI_API_KEY"
 
+if [ ! -d "assets" ]; then
+  mkdir assets
+fi
+
+
+
+
 
 prompt="
 You are writing a script for a short video.
@@ -44,7 +51,7 @@ For example:
 
 Each line of text should not exceed 15 words, but you can split up a sentence into multiple lines if needed.
 
-There should not be more than 10 lines of text in total.
+There should be 8-10 lines of text in total.
 
 Image descriptions should be concrete things that can be drawn, not abstract concepts.
 For example, generate people and objects, not maps, documents, or concepts.
